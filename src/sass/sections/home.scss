@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'pieces_of_eightregular';
+  src:  url('../../assets/webfontkit-20220415-000116/pieces_of_eight-webfont.woff2') format('woff2'),
+        url('../../assets/webfontkit-20220415-000116/pieces_of_eight-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.content {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-around;
+  &__header {
+    text-align: center;
+    width: 600px;
+    max-height: 200px;
+    font-family: 'pieces_of_eightregular', 'Arial Narrow', Arial, sans-serif;
+      &--title {
+        color: white;
+        font-weight: 400;
+        font-size: 30px;
+        text-transform: uppercase;
+      }
+      &--description{
+        color: black;
+        font-size: 28px;
+      }
+  }
+    &__image{
+      img {
+        height: 500px;
+        margin-top: -150px;
+      }
+    }
+}
+@media only screen and(max-width: 768px){
+  .content{
+    &__header{
+      padding: 0 20px;
+      margin-top: -60px;
+    }
+  }
+}
+@media only screen and(max-width: 576px){
+  .content{
+    flex-direction: column;
+    margin-top: 1rem;
+    &__header{
+      text-align: justify;
+      text-indent: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      order: 2;
+      margin-top: -40px;
+      margin-bottom: 150px;
+      &--title{
+        font-size: 17px;
+        padding: 0 5px;
+        text-align: center;
+      }
+      &--description{
+        padding: 0 20px;
+        font-size: 20px;
+      }
+    }
+    &__image{
+      display: flex;
+      order: 1; 
+      justify-content: center;
+      margin-top: 80px;
+    } 
+  }
+}

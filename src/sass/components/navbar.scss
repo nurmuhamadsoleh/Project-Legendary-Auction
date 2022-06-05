@@ -1,0 +1,211 @@
+@font-face {
+  font-family: 'pieces_of_eightregular';
+  src:  url('../../assets/webfontkit-20220415-000116/pieces_of_eight-webfont.woff2') format('woff2'),
+  url('../../assets/webfontkit-20220415-000116/pieces_of_eight-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+nav {
+  background-color: #900000;
+  position: fixed;
+  top: 10px;
+  left: 0px;
+  right: 0px;
+  z-index: 5;
+  box-shadow: -2px -21px 19px -4px rgba(255,255,255,0.61) inset;
+    -webkit-box-shadow: -2px -21px 19px -4px rgba(255,255,255,0.61) inset;
+    -moz-box-shadow: -2px -21px 19px -4px rgba(255,255,255,0.61) inset;
+  .brand{
+    display: flex;
+    justify-content: space-around;
+    color: #c51515;
+    align-items: center;
+    height: 100px;
+    &__container {
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 75px;
+      font-family: 'pieces_of_eightregular', 'Arial Narrow', Arial, sans-serif;
+      h6{
+        font-size: 30px;
+        color: white;
+      }
+    }
+    &__menu{
+      font-family: 'pieces_of_eightregular', 'Arial Narrow', Arial, sans-serif;
+      display: flex;
+      width: 30%;
+      justify-content: space-between;
+      list-style: none;
+      font-size: 20px;
+      span{
+        font-size: 30px;
+      }
+    }
+    .menutoggle{
+      display: none;
+      flex-direction: column;
+      height: 30px;
+      justify-content: space-between;
+      position: relative;
+      right: -110px;
+      input{
+        position: absolute;
+        width: 40px;
+        height: 28px;
+        opacity: 0;
+        left: -6px;
+        bottom: 1px;
+        cursor: pointer;
+        z-index: 2;
+      }
+      span{
+        display: block;
+        height: 3px;
+        width: 28px;
+        background-color: white;
+        border-radius: 3px;
+        transition: all 0.5s;
+        &:nth-child(2){
+          transform-origin: 0 0;
+        }
+        &:nth-child(4){
+          transform-origin: 0 100%;
+        }
+      }
+      input:checked ~ span:nth-child(2){
+        transform: rotate(45deg) translate(5px, -1px);
+        background-color: #FF7A00;
+      }
+      input:checked ~ span:nth-child(3){
+        transform: scale(0);
+        opacity: 0;
+      }
+      input:checked ~ span:nth-child(4){
+        transform: rotate(-45deg) translate(6px, 0px);
+        background-color: #FF7A00;
+      }
+    }
+  }
+  .line{
+    width: 100%;
+    background-color: #FF7A00;
+    box-shadow: 0px 3px 21px 9px rgba(144,86,0,0.66);
+    -webkit-box-shadow: 0px 3px 21px 9px rgba(144,86,0,0.66);
+    -moz-box-shadow: 0px 3px 21px 9px rgba(144,86,0,0.66);
+    &__center{
+      background-color: rgba($color: #e61717, $alpha: 0.8);
+      width: 800px;
+      height: 8px;
+      margin: auto;
+      padding-top: 10px;
+      border-radius: 50%;
+    }
+  }
+  
+  .links-container {
+    .links {
+      list-style-type: none;
+      display: flex;
+      gap: 4rem;
+      li {
+        .dark {
+          color: black;
+        }
+        .light {
+          color: yellow;
+        }
+        a {
+          color: var(--accent-color3);
+          text-decoration: none;
+        }
+        &:last-of-type {
+          a {
+            color: var(--pink);
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and(max-width: 768px){
+  nav{
+    .brand{
+      display: flex;
+      justify-content: space-between;
+      padding-left: 10px;
+      width: 57%;
+      &__container {
+        h6{
+          font-size: 22px !important;
+        }
+      }
+      &__menu{
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        right: 10px;
+        width: 50%;
+        span{
+          font-size: 25px;
+        }       
+      }
+
+      &__container{
+        h6{
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+@media only screen and(max-width: 576px){
+  nav{
+    .brand{
+      &__container{
+        h6{
+          font-size: 12px;
+          color:white;;
+        }
+
+      }
+      &__menu{
+        position: absolute;
+        flex-direction: column;
+        background-color: #900000;
+        opacity: 0;
+        top: 0px;
+        right: 0;
+        height: 100vh;
+        width: 60%;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: all 1s;
+        padding-left: 0px;
+        // margin-left: -10px;
+        font-size: 25px;
+        span{
+          font-size: 30px;
+        }
+      }
+      ul.slide{
+        opacity: 0.8;
+        transform: translateX(0);
+      }
+      .menutoggle{
+        display: flex;
+
+      }
+    }
+  }
+}
+
